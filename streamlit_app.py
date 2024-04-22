@@ -170,49 +170,15 @@ data = {
 df = pd.DataFrame(data)
 
 # Mostrar el DataFrame
-df.head(3)
 
 """2. Análisis de Datos: Realicen al menos seis análisis diferentes utilizando técnicas de visualización y estadística descriptiva. Por ejemplo, pueden explorar la distribución de los montos de reclamo, la relación entre variables, la cantidad de siniestros por tipo de coche o mes, entre otros."""
 
-df.info()
+
 
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Análisis: Tipos de coches con más siniestros
-print('Tipos de coches con más siniestros')
-top_coches_siniestrados = df['Modelo del coche'].value_counts()
-print( top_coches_siniestrados )
-print( "" )
-# Gráfico: Tipos de coches con más siniestros
-top_coches_siniestrados.sort_values(ascending=True).plot(kind='barh', title='Tipos de coches con más siniestros', xlabel='Modelo del coche', ylabel='Numero de siniestros', width=0.8)
-plt.show()
-# Análisis: Fechas con más siniestros
-print('Fechas con más siniestros')
-df_copia = df.copy()
-df_copia['Mes de inicio'] = df_copia['Fecha de inicio'].apply(lambda x: int(x.strftime('%m')))
-top_fechas_siniestros = df_copia['Mes de inicio'].value_counts().sort_index()
-print( top_fechas_siniestros )
-print("")
 
-# Gráfico: Fechas con más siniestros
-print('Fechas con más siniestros')
-top_fechas_siniestros.plot(kind='line', title='Tipos de coches con más siniestros', xlabel='Fechas con más siniestros', ylabel='Mes')
-plt.show()
-
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-# Análisis: Tipos de coches con más siniestros
-''' COMPLETAR '''
-
-# Gráfico: Tipos de coches con más siniestros
-''' COMPLETAR '''
-
-# Análisis: Fechas con más siniestros
-''' COMPLETAR '''
-# Gráfico: Fechas con más siniestros
-''' COMPLETAR '''
 
 """3. Desarrollo del Modelo Predictivo: Elijan un modelo de Machine Learning adecuado para predecir alguna variable relevante en función del conjunto de datos generado. Por ejemplo, pueden predecir el monto del reclamo, el tipo de siniestro o la probabilidad de siniestros."""
 
@@ -260,7 +226,6 @@ print(f"\nPrecisión del modelo: {accuracy:.2f}")
 
 """4. Despliegue de la Aplicación en Streamlit: Desarrollen una aplicación web utilizando Streamlit que permita a los usuarios interactuar con el modelo predictivo y obtener predicciones en tiempo real. Asegúrense de que la aplicación sea intuitiva y fácil de usar."""
 
-!pip install streamlit
 
 import streamlit as st
 
