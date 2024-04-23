@@ -120,25 +120,27 @@ insurance_state = form.selectbox('Estado del seguro', ['Al día', 'Vencido'])
 third_party_damage = form.select_slider('Daños a terceros', options=[0, 1])
 submit_button = form.form_submit_button(label='Predecir')
 
-# Preprocesamiento de datos de entrada
-user_data = {
-    'Tipo de cobertura': coverage_type,
-    'Modelo del coche': car_model,
-    'Año del coche': car_year,
-    'Valor asegurado': insured_value,
-    'Deducible': deductible,
-    'Estado del seguro':insurance_state,
-    'Daños a terceros': third_party_damage
-}
+if submit_button:
+    # Preprocesamiento de datos de entrada
+    user_data = {
+        'Tipo de cobertura': coverage_type,
+        'Modelo del coche': car_model,
+        'Año del coche': car_year,
+        'Valor asegurado': insured_value,
+        'Deducible': deductible,
+        'Estado del seguro':insurance_state,
+        'Daños a terceros': third_party_damage
+    }
 
-# Crear DataFrame
-df_user = pd.DataFrame(user_data, index=[1])
-# Codificación de variables categóricas
-df_encoded_user = pd.get_dummies(df_user)
+    # Crear DataFrame
+    df_user = pd.DataFrame(user_data, index=[1])
+    # Codificación de variables categóricas
+    df_encoded_user = pd.get_dummies(df_user)
 
-# Predicción
-y_pred = model.predict(df_encoded_user)
-print(f"\nEl valor predicho para los gastos medicos es el siguiente: {y_pred}")
+    # Predicción
+    y_pred = model.predict(df_encoded_user)
+    print(f"\nEl valor predicho para los gastos medicos es el siguiente: {y_pred}")
+
 
 """# Entrega del Proyecto:
 
