@@ -2,6 +2,13 @@ import numpy as np
 import pandas as pd
 import datetime
 import random
+import streamlit as st
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
 
 rng = np.random.default_rng()
 
@@ -50,11 +57,6 @@ data['Fecha de vencimiento'] = [generate_random_date(data['Fecha de inicio'][_].
 # Crear DataFrame
 df = pd.DataFrame(data)
 
-# Mostrar el DataFrame
-
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
 
 # Codificación de variables categóricas
 df_encoded = pd.get_dummies(df.drop(['Número de póliza', 'Fecha de inicio', 'Fecha de vencimiento'], axis=1))
@@ -73,10 +75,6 @@ y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"\nPrecisión del modelo: {accuracy:.2f}")
 
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
-
 # Codificación de variables categóricas
 df_encoded = pd.get_dummies(df.drop(['Número de póliza', 'Fecha de inicio', 'Fecha de vencimiento'], axis=1))
 
@@ -93,8 +91,6 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"\nPrecisión del modelo: {accuracy:.2f}")
-
-import streamlit as st
 
 # Interfaz de usuario
 st.title('Predicción de Gastos Médicos')
