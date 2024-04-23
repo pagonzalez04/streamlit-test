@@ -58,7 +58,11 @@ Pasos a Seguir:
 Asegúrense de incluir todas las variables solicitadas y generar al menos 10,000 casos diferentes.
 """
 
+import numpy as np
 import pandas as pd
+import datetime
+import random
+
 def generate_random_date(start_date, end_date):
     rng = np.random.default_rng()
     days_difference = ( datetime.datetime.strptime(end_date, '%d/%m/%Y').date()  - datetime.datetime.strptime(start_date, '%d/%m/%Y').date() ).days
@@ -67,11 +71,6 @@ def generate_random_date(start_date, end_date):
 
 rng = np.random.default_rng()
 rng.integers(3)
-
-import pandas as pd
-import numpy as np
-import datetime
-import random
 
 # Función para generar fechas aleatorias dentro de un rango
 def generate_random_date(start_date, end_date):
