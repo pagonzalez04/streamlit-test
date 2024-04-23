@@ -52,8 +52,6 @@ df = pd.DataFrame(data)
 
 # Mostrar el DataFrame
 
-"""3. Desarrollo del Modelo Predictivo: Elijan un modelo de Machine Learning adecuado para predecir alguna variable relevante en función del conjunto de datos generado. Por ejemplo, pueden predecir el monto del reclamo, el tipo de siniestro o la probabilidad de siniestros."""
-
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
@@ -95,8 +93,6 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"\nPrecisión del modelo: {accuracy:.2f}")
-
-"""4. Despliegue de la Aplicación en Streamlit: Desarrollen una aplicación web utilizando Streamlit que permita a los usuarios interactuar con el modelo predictivo y obtener predicciones en tiempo real. Asegúrense de que la aplicación sea intuitiva y fácil de usar."""
 
 import streamlit as st
 
