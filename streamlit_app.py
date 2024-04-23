@@ -63,14 +63,7 @@ import pandas as pd
 import datetime
 import random
 
-def generate_random_date(start_date, end_date):
-    rng = np.random.default_rng()
-    days_difference = ( datetime.datetime.strptime(end_date, '%d/%m/%Y').date()  - datetime.datetime.strptime(start_date, '%d/%m/%Y').date() ).days
-    random_days = rng.integers(days_difference)
-    return datetime.datetime.strptime(start_date, '%d/%m/%Y').date() + datetime.timedelta(days=int(random_days))
-
 rng = np.random.default_rng()
-rng.integers(3)
 
 # Función para generar fechas aleatorias dentro de un rango
 def generate_random_date(start_date, end_date):
@@ -117,67 +110,11 @@ data = {
 df = pd.DataFrame(data)
 
 # Mostrar el DataFrame
-df.head(3)
-
-import pandas as pd
-import numpy as np
-import datetime
-import random
-
-# Función para generar fechas aleatorias dentro de un rango
-def generate_random_date(start_date, end_date):
-    rng = np.random.default_rng()
-    days_difference = ( datetime.datetime.strptime(end_date, '%d/%m/%Y').date()  - datetime.datetime.strptime(start_date, '%d/%m/%Y').date() ).days
-    random_days = rng.integers(days_difference)
-    return datetime.datetime.strptime(start_date, '%d/%m/%Y').date() + datetime.timedelta(days=random_days)
-
-# Semilla para reproducibilidad
-np.random.seed(42)
-
-# Generar 10,000 casos simulados
-n_cases = 10000
-
-# Fechas de inicio y vencimiento de la cobertura desde 2022 a 2025
-start_date_coverage = '1/1/2022'
-end_date_coverage = '31/12/2025'
-
-# Tipos de cobertura
-coverage_types = ['Responsabilidad civil', 'Cobertura total', 'Cobertura de colisión', 'Cobertura amplia', 'Cobertura de robo']
-
-# Modelos de coches y probabilidades de ocurrencia
-car_models = ['Toyota Corolla', 'Honda Civic', 'Ford Focus', 'Chevrolet Cruze', 'Nissan Sentra',
-              'Hyundai Elantra', 'Volkswagen Jetta', 'Kia Forte', 'Mazda 3', 'Subaru Impreza']
-
-probabilities = [0.2, 0.15, 0.12, 0.1, 0.08, 0.1, 0.08, 0.07, 0.05, 0.05]
-
-# Generar datos simulados
-data = {
-    'Número de póliza': ['P' + '0' * ( 5 - len(str(_) ) ) + str(_) for _ in range(1,n_cases+1)],
-    'Fecha de inicio': [generate_random_date(start_date_coverage, end_date_coverage) for _ in range(n_cases)],
-    'Fecha de vencimiento': [generate_random_date(start_date_coverage, end_date_coverage) for _ in range(n_cases)],
-    'Tipo de cobertura': np.random.choice(coverage_types, n_cases),
-    'Modelo del coche': np.random.choice(car_models, n_cases, p=probabilities),
-    'Año del coche': np.random.randint(coverage_types, n_cases),
-    'Valor asegurado': np.random.randint(10000, 50000, n_cases),
-    'Deducible': np.random.choice([500, 600, 700], n_cases),
-    'Estado del seguro': np.random.choice(["Al día", "Vencido"], n_cases, p=[0.75, 0.25]),
-    'Gastos médicos': np.random.choice(["Al día", "Vencido"], n_cases, p=[0.97, 0.03]),
-    'Daños a terceros': np.random.choice([0, 1], n_cases, p=[0.95, 0.05])
-}
-
-# Crear DataFrame
-df = pd.DataFrame(data)
-
-# Mostrar el DataFrame
 
 """2. Análisis de Datos: Realicen al menos seis análisis diferentes utilizando técnicas de visualización y estadística descriptiva. Por ejemplo, pueden explorar la distribución de los montos de reclamo, la relación entre variables, la cantidad de siniestros por tipo de coche o mes, entre otros."""
 
-
-
 import seaborn as sns
 import matplotlib.pyplot as plt
-
-
 
 """3. Desarrollo del Modelo Predictivo: Elijan un modelo de Machine Learning adecuado para predecir alguna variable relevante en función del conjunto de datos generado. Por ejemplo, pueden predecir el monto del reclamo, el tipo de siniestro o la probabilidad de siniestros."""
 
