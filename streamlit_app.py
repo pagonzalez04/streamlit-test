@@ -52,11 +52,6 @@ df = pd.DataFrame(data)
 
 # Mostrar el DataFrame
 
-"""2. Análisis de Datos: Realicen al menos seis análisis diferentes utilizando técnicas de visualización y estadística descriptiva. Por ejemplo, pueden explorar la distribución de los montos de reclamo, la relación entre variables, la cantidad de siniestros por tipo de coche o mes, entre otros."""
-
-import seaborn as sns
-import matplotlib.pyplot as plt
-
 """3. Desarrollo del Modelo Predictivo: Elijan un modelo de Machine Learning adecuado para predecir alguna variable relevante en función del conjunto de datos generado. Por ejemplo, pueden predecir el monto del reclamo, el tipo de siniestro o la probabilidad de siniestros."""
 
 from sklearn.model_selection import train_test_split
@@ -141,16 +136,3 @@ if submit_button:
     y_pred = model.predict(df_encoded_user)
     print(f"\nEl valor predicho para los gastos medicos es el siguiente: {y_pred}")
 
-
-"""# Entrega del Proyecto:
-
-La entrega del proyecto se realizará en dos etapas:
-1.	Informe Escrito: Presenten un informe escrito que incluya una descripción detallada de cada paso realizado, los resultados obtenidos en el análisis de datos, la elección y evaluación del modelo predictivo, y una guía de usuario para la aplicación desarrollada en Streamlit.
-
-2.	Código y Archivos de la Aplicación: Adjunten el código Python utilizado para generar los datos simulados, realizar el análisis de datos, entrenar el modelo predictivo y desarrollar la aplicación en Streamlit. Además, proporcionen los archivos necesarios para ejecutar la aplicación de manera local o el enlace al entorno en el que está desplegada.
-
-Fecha de Entrega: La fecha límite para la entrega del proyecto es el [28 de abril]. Por favor, asegúrense de cumplir con todos los requisitos y de proporcionar una presentación clara y organizada de su trabajo.
-
-Esperamos ver sus proyectos finales y estamos disponibles para cualquier pregunta o aclaración adicional que puedan necesitar.
-
-"""
