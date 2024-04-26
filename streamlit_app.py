@@ -122,7 +122,7 @@ if submit_button:
 
     # Predicción
     y_pred = model.predict(df_encoded_user_all)
-    if y_pred == 1:
+    if y_pred == [1]:
         result = True
     else:
         result = False
