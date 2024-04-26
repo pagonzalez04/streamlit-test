@@ -75,22 +75,6 @@ y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"\nPrecisión del modelo: {accuracy:.2f}")
 
-# Codificación de variables categóricas
-df_encoded = pd.get_dummies(df.drop(['Número de póliza', 'Fecha de inicio', 'Fecha de vencimiento'], axis=1))
-
-# División de datos en entrenamiento y prueba
-X = df_encoded.drop('Gastos médicos', axis=1)
-y = df_encoded['Gastos médicos']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# Entrenamiento del modelo
-model = RandomForestClassifier(n_estimators=100, random_state=42)
-model.fit(X_train, y_train)
-
-# Evaluación del modelo
-y_pred = model.predict(X_test)
-accuracy = accuracy_score(y_test, y_pred)
-print(f"\nPrecisión del modelo: {accuracy:.2f}")
 
 # Interfaz de usuario
 st.title('Predicción de Gastos Médicos')
@@ -124,7 +108,19 @@ if submit_button:
     # Codificación de variables categóricas
     df_encoded_user = pd.get_dummies(df_user)
 
+    all_columns = list(X_train.columns)
+    user_columns = list(df_encoded_user.columns)
+    main_list = [item for item in all_columns if item not in user_columns]
+    cols_missing = {}
+    for i in main_list:
+        cols_missing[i] = False
+    col_missing = pd.DataFrame(cols_missing, index=[1])
+
+    df_encoded_user_all = pd.concat([df_encoded_user, col_missing], axis=1)
+    df_encoded_user_all =  df_encoded_user[all_columns]
+
+
     # Predicción
-    y_pred = model.predict(df_encoded_user)
+    y_pred = model.predict(df_encoded_user_all)
     print(f"\nEl valor predicho para los gastos medicos es el siguiente: {y_pred}")
 
