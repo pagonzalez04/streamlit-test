@@ -122,5 +122,6 @@ if submit_button:
 
     # Predicción
     y_pred = model.predict(df_encoded_user_all)
-    print(f"\nEl valor predicho para los gastos medicos es el siguiente: {y_pred}")
+    st.write(f"\nEl valor predicho para los gastos medicos es el siguiente: {y_pred}")
+    #print(f"\nEl valor predicho para los gastos medicos es el siguiente: {y_pred}")
 
