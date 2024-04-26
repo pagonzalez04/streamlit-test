@@ -117,7 +117,7 @@ if submit_button:
     col_missing = pd.DataFrame(cols_missing, index=[1])
 
     df_encoded_user_all = pd.concat([df_encoded_user, col_missing], axis=1)
-    df_encoded_user_all =  df_encoded_user[all_columns]
+    df_encoded_user_all =  df_encoded_user_all[all_columns]
 
 
     # Predicción
